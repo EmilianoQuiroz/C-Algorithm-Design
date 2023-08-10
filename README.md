@@ -8,3 +8,7 @@ Roadmap para dominar Javascipt
 - Strings
 - Numeros
 - Operadores Booleanos
+- Objetos
+- Arrays
+- Funciones
+- Estructuras de control
