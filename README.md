@@ -12,3 +12,8 @@ Roadmap para dominar Javascipt
 - Arrays
 - Funciones
 - Estructuras de control
+- Iteradores
+- Array method
+- Dom
+- Eventos
+- Local Storage
