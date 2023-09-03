@@ -18,7 +18,8 @@ Roadmap para dominar Javascipt
 - Problemas con la declaración de variables con var
 - Prompts, alerts, confirms.
 
-- Variables.
+## Fundamentos de Javascript
+- Variables
 - Strings
 - Numeros
 - Operadores Booleanos
