@@ -54,3 +54,5 @@ Roadmap para dominar Javascipt
 - 
 
 ## Proyectos: 
+- Carrito de compras
+
