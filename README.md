@@ -33,4 +33,24 @@ Roadmap para dominar Javascipt
 - Eventos
 - Local Storage
 
+## Javascript Avanzado
+- Local Storage
+- Fechas
+- Prototypes
+- Programacion Orientada a Objetos
+- Sets Maps y Symbols
+- Modulos
+- Promises Callbacks y programacion Asincrona
+- API's
+- Fetch API
+- Async Await
+- Services Workers y PWA
+- Debug y performance
+- Testing
+- JEST
+- Introduccion a Node js
+- Introduccion a React js
+- Introduccion a Vue js
+- 
+
 ## Proyectos: 
