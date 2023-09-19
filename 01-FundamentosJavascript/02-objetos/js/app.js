@@ -38,3 +38,9 @@ console.log(destino)
 // Eliminar elementos del objeto
 delete destino.cupos;
 console.log(destino)
+
+// Destructuracion de objetos
+const {ciudad, pais, aplicaDescuento} = destino;// Se extrae el nombre y el valor de la propiedad del objeto 
+console.log(ciudad);
+console.log(pais);
+console.log(aplicaDescuento);
