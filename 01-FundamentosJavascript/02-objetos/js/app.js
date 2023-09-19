@@ -32,7 +32,9 @@ console.log( destino.actividades.act1 );
 console.log('Cantidad de actividades', destino.actividades.length );
 
 // Agregar un nuevo elemento al objeto 
-
 destino.imagen = 'imagen.jpg';
+console.log(destino)
 
+// Eliminar elementos del objeto
+delete destino.cupos;
 console.log(destino)
