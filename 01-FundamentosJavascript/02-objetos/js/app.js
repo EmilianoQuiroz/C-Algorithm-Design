@@ -28,5 +28,11 @@ console.log( destino['actividades'] );
 // Accedemos a un elemento del array dentro del objeto
 console.log( destino.actividades.act1 );
 
-// cantidad de actividades
+// Cantidad de actividades
 console.log('Cantidad de actividades', destino.actividades.length );
+
+// Agregar un nuevo elemento al objeto 
+
+destino.imagen = 'imagen.jpg';
+
+console.log(destino)
