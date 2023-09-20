@@ -56,3 +56,6 @@ Roadmap para dominar Javascipt
 ## Proyectos: 
 - Carrito de compras
 - Simulador de envio de mails
+- Filtrar y buscar en la BD por filtros
+- Almacenar textos en LocalStorage
+- Carrito de compras con localStorage
