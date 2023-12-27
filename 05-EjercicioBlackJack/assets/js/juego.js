@@ -58,12 +58,12 @@ const pedirCarta = () => {
 
 // pedirCarta();
 
-const valorCarta = ( carta ) => {
+const valorCarta = (carta) => {
 
     const valor = carta.substring(0, carta.length - 1);
-    return ( isNaN( valor ) ) ? 
-            ( valor === 'A' ) ? 11 : 10
-            : valor * 1;
+    return (isNaN(valor)) ?
+        (valor === 'A') ? 11 : 10
+        : valor * 1;
 }
 
 //Eventos
@@ -72,4 +72,18 @@ btnPedir.addEventListener('click', () => {
 
     puntosJugador = puntosJugador + valorCarta(carta);
     puntosHTML[0].innerText = puntosJugador;
+
+    //<img class="carta" src="assets/cartas/10S.png" alt=""> 
+    const imgCarta = document.createElement('img');
+    imgCarta.src = `assets/cartas/${carta}.png`;
+    imgCarta.classList.add('carta');
+    divCartasJugador.append(imgCarta);
+
+    if (puntosJugador > 21) {
+        btnPedir.disabled = true;
+        console.warn('game over');
+    } else if (puntosJugador === 21) {
+        console.warn('You Win');
+    }
+
 });
