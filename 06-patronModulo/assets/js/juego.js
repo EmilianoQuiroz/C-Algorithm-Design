@@ -20,6 +20,9 @@
     // Esta funcion inicializa el juego
     const inicializarJuego = (numJugadores = 1) => {
         deck = crearDeck();
+        for (let i = 0; i < numJugadores; i++) {
+            puntosJugador.push(0);
+        }
     }
 
     //Funcion para crear el mazo
@@ -61,7 +64,7 @@
             : valor * 1;
     }
 
-    const acumularPuntos = () =>{
+    const acumularPuntos = () => {
 
     }
     // Turno de la computadora
