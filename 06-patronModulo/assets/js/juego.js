@@ -18,7 +18,7 @@
     const puntosHTML = document.querySelectorAll('small');
 
     // Esta funcion inicializa el juego
-    const inicializarJuego = (numJugadores = 1) => {
+    const inicializarJuego = (numJugadores = 2) => {
         deck = crearDeck();
         for (let i = 0; i < numJugadores; i++) {
             puntosJugador.push(0);
@@ -63,19 +63,21 @@
             (valor === 'A') ? 11 : 10
             : valor * 1;
     }
+// El  0 es el primer jugador y el ultimo la computadora
+    const acumularPuntos = ( carta, turno ) => {
 
-    const acumularPuntos = () => {
+    puntosJugador[turno] = puntosJugador[turno] + valorCarta(carta);
 
+    puntosHTML[turno].innerText = puntosJugador[turno];
+
+    return puntosJugador[turno]
     }
     // Turno de la computadora
     const turnoComputadora = (puntosMinimos) => {
         do {
             const carta = pedirCarta();
 
-            puntosComputadora = puntosComputadora + valorCarta(carta);
-            puntosHTML[1].innerText = puntosComputadora;
-
-            // <img class="carta" src="assets/cartas/2C.png">
+            acumularPuntos(carta, puntosJugador.length -1);
             const imgCarta = document.createElement('img');
             imgCarta.src = `assets/cartas/${carta}.png`; //3H, JD
             imgCarta.classList.add('carta');
@@ -101,9 +103,10 @@
     //Eventos
     btnPedir.addEventListener('click', () => {
         const carta = pedirCarta();
+        const puntosJugador = acumularPuntos(carta, 0);
 
-        puntosJugador = puntosJugador + valorCarta(carta);
-        puntosHTML[0].innerText = puntosJugador;
+        // puntosJugador = puntosJugador + valorCarta(carta);
+        // puntosHTML[0].innerText = puntosJugador;
 
         //<img class="carta" src="assets/cartas/10S.png" alt=""> 
         const imgCarta = document.createElement('img');
@@ -139,8 +142,8 @@
         // deck = crearDeck();
         inicializarJuego();
 
-        puntosJugador = 0;
-        puntosComputadora = 0;
+        // puntosJugador = 0;
+        // puntosComputadora = 0;
 
         puntosHTML[0].innerText = 0;
         puntosHTML[1].innerText = 0;
