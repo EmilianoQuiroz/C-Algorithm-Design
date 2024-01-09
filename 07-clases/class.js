@@ -9,10 +9,16 @@ class Persona {
         this.apellido = apellido
         this.edad = edad
     }
+
+    quienSoy() {
+        console.log(`Soy ${this.nombre} y mi apellido es ${this.apellido}`)
+    }
 }
 
 const pedro = new Persona('Pedro', 'Doe', 35);
-console.log(pedro); 
+console.log(pedro);
 
 const john = new Persona('John', 'Doe', 25);
 console.log(john); 
+
+pedro.quienSoy();
