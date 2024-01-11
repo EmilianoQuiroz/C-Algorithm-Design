@@ -1,14 +1,27 @@
 // Es recomendable nombrar a las clases con UpperCammelCase
 class Persona {
-    nombre = ''
-    apellido = ''
-    edad = ''
-    comida = ''
+
+    static _conteo = 0;
+    static get conteo() {
+        return Persona._conteo + ' instancias';
+    }
+
+    static mensaje() {
+        console.log(this.nombre);
+        console.log('Object');
+    }
+
+    nombre = '';
+    apellido = '';
+    edad = '';
+    comida = '';
 
     constructor(nombre, apellido, edad) {
         this.nombre = nombre
         this.apellido = apellido
         this.edad = edad
+
+        Persona._conteo++;
     }
 
     set setComidaFavorita(comida) {
@@ -35,3 +48,12 @@ pedro.setComidaFavorita = 'Manzana';
 console.log(pedro);
 
 console.log(pedro.getComidaFavorita);
+
+console.log('Conteo statico', Persona._conteo);
+
+console.log(Persona.conteo);
+
+Persona.mensaje();
+
+Persona.propiedadExterna = 'Hola mundo';
+console.log(Persona);
