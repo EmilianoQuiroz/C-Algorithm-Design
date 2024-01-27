@@ -1,8 +1,5 @@
 import _ from 'underscore';
-import { crearDeck as crearNuevoDeck } from './usecases/crear-deck'
-import { pedirCarta } from './usecases/pedir-carta';
-import { valorCarta } from './usecases/valor-carta';
-
+import { crearDeck, pedirCarta, valorCarta } from './usecases';
 // Mazo de cartas
 let deck = [];
 const tipos = ['C', 'D', 'H', 'S'];
@@ -19,7 +16,7 @@ const divCartasJugador = document.querySelector('#jugador-cartas');
 const divCartasComputadora = document.querySelector('#computadora-cartas');
 const puntosHTML = document.querySelectorAll('small');
 
-deck = crearNuevoDeck(tipos, especiales);
+deck = crearDeck(tipos, especiales);
 
 // Turno de la computadora
 const turnoComputadora = (puntosMinimos) => {
@@ -91,7 +88,7 @@ btnNuevo.addEventListener('click', () => {
 
     console.clear();
     deck = [];
-    deck = crearNuevoDeck(tipos, especiales);
+    deck = crearDeck(tipos, especiales);
 
     puntosJugador = 0;
     puntosComputadora = 0;
