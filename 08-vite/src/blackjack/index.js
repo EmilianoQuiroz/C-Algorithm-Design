@@ -1,5 +1,5 @@
 import _ from 'underscore';
-import { crearDeck } from './usecases/crear-deck'
+import { crearDeck as crearNuevoDeck} from './usecases/crear-deck'
 
 /**
  * 2C = 2 de trebol
@@ -26,7 +26,7 @@ const divCartasComputadora = document.querySelector('#computadora-cartas');
 
 const puntosHTML = document.querySelectorAll('small');
 
-crearDeck();
+deck = crearNuevoDeck(tipos, especiales);
 
 
 //Funcion para pedir una carta
