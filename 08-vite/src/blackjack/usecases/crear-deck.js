@@ -1,7 +1,15 @@
 import _ from "underscore";
 
-//Funcion para crear el mazo
+/**
+ * Esta funcion crea un nuevo Deck
+ * @param {array<string>} tiposDeCarta 
+ * @param {*array<string>} tiposEspeciales 
+ * @returns {array<string>}
+ */
 export const crearDeck = (tiposDeCarta, tiposEspeciales) => {
+    if (!tiposDeCarta || tiposDeCarta.length === 0) throw new Error('TiposDeCarta es Obligatorio');
+
+    if (!tiposEspeciales || tiposEspeciales.length === 0) throw new Error('TiposDeCarta es Obligatorio');
 
     let deck = [];
 
