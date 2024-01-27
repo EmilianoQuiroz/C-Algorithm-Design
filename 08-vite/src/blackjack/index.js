@@ -1,12 +1,7 @@
 import _ from 'underscore';
-import { crearDeck as crearNuevoDeck} from './usecases/crear-deck'
-
-/**
- * 2C = 2 de trebol
- * 2D = 2 de diamantes
- * 2H = 2 de corazones
- * 2S = 2 de espadas
-*/
+import { crearDeck as crearNuevoDeck } from './usecases/crear-deck'
+import { pedirCarta } from './usecases/pedir-carta';
+import { valorCarta } from './usecases/valor-carta';
 
 // Mazo de cartas
 let deck = [];
@@ -20,40 +15,17 @@ let puntosJugador = 0,
 const btnPedir = document.querySelector('#btnPedir');
 const btnDetener = document.querySelector('#btnDetener');
 const btnNuevo = document.querySelector('#btnNuevo');
-
 const divCartasJugador = document.querySelector('#jugador-cartas');
 const divCartasComputadora = document.querySelector('#computadora-cartas');
-
 const puntosHTML = document.querySelectorAll('small');
 
 deck = crearNuevoDeck(tipos, especiales);
-
-
-//Funcion para pedir una carta
-const pedirCarta = () => {
-
-    if (deck.length === 0) {
-        throw 'No hay cartas en el deck';
-    }
-    const carta = deck.pop();
-    return carta;
-}
-
-// pedirCarta();
-
-const valorCarta = (carta) => {
-
-    const valor = carta.substring(0, carta.length - 1);
-    return (isNaN(valor)) ?
-        (valor === 'A') ? 11 : 10
-        : valor * 1;
-}
 
 // Turno de la computadora
 const turnoComputadora = (puntosMinimos) => {
 
     do {
-        const carta = pedirCarta();
+        const carta = pedirCarta(deck);
 
         puntosComputadora = puntosComputadora + valorCarta(carta);
         puntosHTML[1].innerText = puntosComputadora;
@@ -83,7 +55,7 @@ const turnoComputadora = (puntosMinimos) => {
 
 //Eventos
 btnPedir.addEventListener('click', () => {
-    const carta = pedirCarta();
+    const carta = pedirCarta(deck);
 
     puntosJugador = puntosJugador + valorCarta(carta);
     puntosHTML[0].innerText = puntosJugador;
@@ -119,7 +91,7 @@ btnNuevo.addEventListener('click', () => {
 
     console.clear();
     deck = [];
-    deck = crearDeck();
+    deck = crearNuevoDeck(tipos, especiales);
 
     puntosJugador = 0;
     puntosComputadora = 0;
