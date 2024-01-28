@@ -1,5 +1,5 @@
 import _ from 'underscore';
-import { crearDeck, pedirCarta, valorCarta } from './usecases';
+import { crearDeck, pedirCarta, valorCarta, turnoComputadora } from './usecases';
 // Mazo de cartas
 let deck = [];
 const tipos = ['C', 'D', 'H', 'S'];
@@ -18,37 +18,6 @@ const puntosHTML = document.querySelectorAll('small');
 
 deck = crearDeck(tipos, especiales);
 
-// Turno de la computadora
-const turnoComputadora = (puntosMinimos) => {
-
-    do {
-        const carta = pedirCarta(deck);
-
-        puntosComputadora = puntosComputadora + valorCarta(carta);
-        puntosHTML[1].innerText = puntosComputadora;
-
-        // <img class="carta" src="assets/cartas/2C.png">
-        const imgCarta = document.createElement('img');
-        imgCarta.src = `assets/cartas/${carta}.png`; //3H, JD
-        imgCarta.classList.add('carta');
-        divCartasComputadora.append(imgCarta);
-
-        if (puntosMinimos > 21) {
-            break;
-        }
-
-    } while ((puntosComputadora < puntosMinimos) && (puntosMinimos <= 21));
-
-    setTimeout(() => {
-        if (puntosComputadora === puntosMinimos) {
-            alert('Nadie gana');
-        } else if (puntosMinimos > 21) {
-            alert('La computadora gana')
-        } else if (puntosComputadora > 21) {
-            alert('Jugador gana')
-        }
-    }, 20)
-}
 
 //Eventos
 btnPedir.addEventListener('click', () => {
@@ -67,12 +36,12 @@ btnPedir.addEventListener('click', () => {
         btnPedir.disabled = true;
         btnDetener.disabled = true;
         console.warn('game over');
-        turnoComputadora(puntosJugador);
+        turnoComputadora(puntosJugador, puntosHTML[1], divCartasComputadora, deck);
     } else if (puntosJugador === 21) {
         btnPedir.disabled = true;
         btnDetener.disabled = true;
         console.warn('You Win');
-        turnoComputadora(puntosJugador);
+        turnoComputadora(puntosJugador, puntosHTML[1], divCartasComputadora, deck);
     }
 
 });
@@ -81,7 +50,7 @@ btnDetener.addEventListener('click', () => {
     btnPedir.disabled = true;
     btnDetener.disabled = true;
 
-    turnoComputadora(puntosJugador);
+    turnoComputadora(puntosJugador, puntosHTML[1], divCartasComputadora, deck);
 });
 
 btnNuevo.addEventListener('click', () => {
