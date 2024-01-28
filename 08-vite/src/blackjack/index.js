@@ -1,5 +1,5 @@
 import _ from 'underscore';
-import { crearDeck, pedirCarta, valorCarta, turnoComputadora } from './usecases';
+import { crearDeck, pedirCarta, valorCarta, turnoComputadora, crearCartaHTML } from './usecases';
 // Mazo de cartas
 let deck = [];
 const tipos = ['C', 'D', 'H', 'S'];
@@ -18,7 +18,6 @@ const puntosHTML = document.querySelectorAll('small');
 
 deck = crearDeck(tipos, especiales);
 
-
 //Eventos
 btnPedir.addEventListener('click', () => {
     const carta = pedirCarta(deck);
@@ -27,9 +26,8 @@ btnPedir.addEventListener('click', () => {
     puntosHTML[0].innerText = puntosJugador;
 
     //<img class="carta" src="assets/cartas/10S.png" alt=""> 
-    const imgCarta = document.createElement('img');
-    imgCarta.src = `assets/cartas/${carta}.png`;
-    imgCarta.classList.add('carta');
+    const imgCarta = crearCartaHTML(carta);
+
     divCartasJugador.append(imgCarta);
 
     if (puntosJugador > 21) {
